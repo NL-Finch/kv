@@ -1,37 +1,23 @@
-# KV
+# KV存储引擎
 
 #### 介绍
-基于跳表的KV存储引擎
+基于跳表的KV存储引擎（key-value数据对存储），支持多线程访问。
 
-#### 软件架构
-软件架构说明
+#### 代码
 
+- 采用C++17标准，代码实现是跨平台的，代码编辑采用VS2019。
 
-#### 安装教程
+- 添加同步锁支持多线程插入、查询、删除，底层采用跳表结构，有较好的插入和查找时间复杂度$O(nlog(n))$。
+- 定义**CONSOLE** 宏可以将插入、删除、查找等操作信息输出到console上，但会影响引擎性能。
+- src文件夹
+  - **kvengine.hpp**  KV引擎的源代码
+  - **main.cpp** KV引擎的基本用例
+  - **performance_test.cpp** KV引擎的插入查询性能测试
+- save文件夹
+  - **data** KV引擎的磁盘数据
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 性能测试
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+- 线程数：3
+- 数据量：300000
+- ![image-20220524165420478](.picture/README/image-20220524165420478.png)
